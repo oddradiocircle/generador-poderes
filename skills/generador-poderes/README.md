@@ -14,9 +14,9 @@ Copia y pega este prompt en la conversacion de tu agente (Claude Code, Cursor,
 Codex, Copilot, etc.) y el agente lo instalara solo:
 
 ---
-Usa los skills en "https://github.com/oddradiocircle/generador-poderes" que sean
+Usa los skills en "oddradiocircle/generador-poderes" que sean
 relevantes para la tarea actual. Ejecuta
-`npx skills add "https://github.com/oddradiocircle/generador-poderes"` y selecciona
+`npx skills add oddradiocircle/generador-poderes` y selecciona
 los skills relevantes, luego sigue sus instrucciones.
 ---
 
@@ -31,7 +31,7 @@ No necesitas indicar el agente: el CLI lo detecta e instala en su carpeta de
 skills automaticamente. Apunta al repositorio de GitHub (ya publicado):
 
 ```bash
-npx skills add "https://github.com/oddradiocircle/generador-poderes"
+npx skills add oddradiocircle/generador-poderes
 ```
 
 Si tienes la carpeta del skill localmente, tambien puedes usar la ruta:
