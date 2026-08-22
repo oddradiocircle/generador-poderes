@@ -14,12 +14,10 @@ Copia y pega este prompt en la conversacion de tu agente (Claude Code, Cursor,
 Codex, Copilot, etc.) y el agente lo instalara solo:
 
 ---
-Instala el skill "generador-poderes" en tu carpeta de skills usando el CLI de
-skills. En la terminal, ejecuta:
-  npx skills add ./generador-poderes --yes
-Esto instala el skill sin que tengas que elegir agente: el CLI detecta tu
-agente y copia el skill a su carpeta de skills. Confirma que aparece el
-directorio "generador-poderes" en la carpeta de skills de tu agente y reportalo.
+Usa los skills en "https://github.com/oddradiocircle/generador-poderes" que sean
+relevantes para la tarea actual. Ejecuta
+`npx skills add "https://github.com/oddradiocircle/generador-poderes"` y selecciona
+los skills relevantes, luego sigue sus instrucciones.
 ---
 
 > **Sin consola:** si no quieres usar la terminal, omite este prompt y ve a la
@@ -30,19 +28,15 @@ directorio "generador-poderes" en la carpeta de skills de tu agente y reportalo.
 ## Instalacion con el CLI skills (la forma mas simple)
 
 No necesitas indicar el agente: el CLI lo detecta e instala en su carpeta de
-skills automaticamente.
+skills automaticamente. Apunta al repositorio de GitHub (ya publicado):
 
 ```bash
-# Si tienes la carpeta del skill localmente:
-npx skills add ./generador-poderes
-
-# O desde GitHub (ya publicado):
-npx skills add oddradiocircle/generador-poderes
+npx skills add "https://github.com/oddradiocircle/generador-poderes"
 ```
 
-Agrega `--yes` para instalar sin confirmaciones:
+Si tienes la carpeta del skill localmente, tambien puedes usar la ruta:
 ```bash
-npx skills add oddradiocircle/generador-poderes --yes
+npx skills add ./generador-poderes
 ```
 
 ## Instalacion manual en Claude (Windows y macOS) — sin CLI
