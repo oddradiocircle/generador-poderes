@@ -22,6 +22,11 @@ agente y copia el skill a su carpeta de skills. Confirma que aparece el
 directorio "generador-poderes" en la carpeta de skills de tu agente y reportalo.
 ---
 
+> **Sin consola:** si no quieres usar la terminal, omite este prompt y ve a la
+> seccion "Instalacion manual en Claude (Windows y macOS) — sin CLI" (abajo):
+> solo copia la carpeta del skill a `~/.claude/skills/generador-poderes/` con el
+> explorador de archivos. Cero linea de comandos.
+
 ## Instalacion con el CLI skills (la forma mas simple)
 
 No necesitas indicar el agente: el CLI lo detecta e instala en su carpeta de
