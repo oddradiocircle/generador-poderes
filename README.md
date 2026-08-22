@@ -15,7 +15,7 @@ Codex, Copilot, etc.) y el agente lo instalara solo:
 
 ---
 Instala el skill "generador-poderes" en tu carpeta de skills usando el CLI de
-skills.sh. En la terminal, ejecuta:
+skills. En la terminal, ejecuta:
   npx skills add ./generador-poderes --yes
 Esto instala el skill sin que tengas que elegir agente: el CLI detecta tu
 agente y copia el skill a su carpeta de skills. Confirma que aparece el
