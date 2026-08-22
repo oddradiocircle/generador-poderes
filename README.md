@@ -1,94 +1,106 @@
 # generador-poderes
 
-Skill para agentes de IA que genera **poderes (powers of attorney) colombianos**
-en Markdown, a partir de plantillas fundamentadas en la legislacion local.
-Aplica lenguaje claro y valida los campos obligatorios.
+[![skills.sh](https://skills.sh/b/oddradiocircle/generador-poderes)](https://www.skills.sh/oddradiocircle/generador-poderes) [![Release](https://img.shields.io/github/v/release/oddradiocircle/generador-poderes?label=release)](https://github.com/oddradiocircle/generador-poderes/releases/tag/v0.1.0) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Este skill funciona en cualquier agente que soporte el formato abierto de skills
-(Claude Code, Claude Cowork, Cursor, Codex, GitHub Copilot, Windsurf, Gemini,
-Cline y 80+ mas).
+> **Genera poderes (powers of attorney) colombianos en Markdown limpio** — plantillas fundamentadas en la legislación local, con lenguaje claro, validación y glosario. Listo para Word/PDF y autenticación notarial.
 
-## Prompt de instalacion automatica (para darle a tu agente)
+> [!TIP]
+> **Compatible con todo el ecosistema abierto de skills:** Claude Code · Claude Cowork · Cursor · Codex · GitHub Copilot · Windsurf · Gemini · Cline y 80+ agentes vía `npx skills`.
 
-Copia y pega este prompt en la conversacion de tu agente (Claude Code, Cursor,
-Codex, Copilot, etc.) y el agente lo instalara solo:
+## ⚡ Instalación en 10 segundos
 
----
-Usa los skills en "oddradiocircle/generador-poderes" que sean
-relevantes para la tarea actual. Ejecuta
-`npx skills add oddradiocircle/generador-poderes` y selecciona
-los skills relevantes, luego sigue sus instrucciones.
----
+### 🤖 Prompt automático (recomendado)
 
-> **Sin consola:** si no quieres usar la terminal, omite este prompt y ve a la
-> seccion "Instalacion manual en Claude (Windows y macOS) — sin CLI" (abajo):
-> solo copia la carpeta del skill a `~/.claude/skills/generador-poderes/` con el
-> explorador de archivos. Cero linea de comandos.
+> [!NOTE]
+> Copia y pega este prompt en tu agente — él lo instala solo:
 
-## Instalacion con el CLI skills (la forma mas simple)
+```text
+Usa los skills en "oddradiocircle/generador-poderes" que sean relevantes para la tarea actual. Ejecuta `npx skills add oddradiocircle/generador-poderes` y selecciona los skills relevantes, luego sigue sus instrucciones.
+```
 
-No necesitas indicar el agente: el CLI lo detecta e instala en su carpeta de
-skills automaticamente. Apunta al repositorio de GitHub (ya publicado):
+<details>
+<summary>🖱️ Sin consola — copia manual</summary>
+
+Si no quieres usar la terminal, copia la carpeta `generador-poderes` a `~/.claude/skills/generador-poderes/` con el explorador de archivos. Cero comandos.
+
+Ver detalles en [Instalación manual](#-instalación-manual--sin-cli) abajo.
+
+</details>
+
+### 🛠️ CLI — una línea
 
 ```bash
 npx skills add oddradiocircle/generador-poderes
 ```
 
-Si tienes la carpeta del skill localmente, tambien puedes usar la ruta:
+¿Tienes la carpeta local? También vale:
+
 ```bash
 npx skills add ./generador-poderes
 ```
 
-## Instalacion manual en Claude (Windows y macOS) — sin CLI
+## 📥 Instalación manual — sin CLI
 
-Los skills de Claude Code son simples carpetas. Solo copia el skill a la carpeta
-de skills de Claude; no necesitas el CLI.
+> [!IMPORTANT]
+> Los skills de Claude son carpetas. Solo cópialas a la carpeta de skills.
 
-**macOS / Linux (personal, disponible en todos tus proyectos):**
-```bash
-cp -r generador-poderes ~/.claude/skills/
-# Queda en: ~/.claude/skills/generador-poderes/
-```
+| Plataforma | Destino personal (todos tus proyectos) | Por proyecto |
+| :--- | :--- | :--- |
+| **macOS / Linux** | `~/.claude/skills/generador-poderes/` <br> `cp -r generador-poderes ~/.claude/skills/` | `<proyecto>/.claude/skills/generador-poderes/` |
+| **Windows (PowerShell)** | `%USERPROFILE%\.claude\skills\generador-poderes\` <br> `Copy-Item -Recurse generador-poderes $env:USERPROFILE\.claude\skills\` | `<proyecto>\.claude\skills\generador-poderes\` |
 
-**Windows (PowerShell, personal):**
-```powershell
-Copy-Item -Recurse generador-poderes $env:USERPROFILE\.claude\skills\
-# Queda en: %USERPROFILE%\.claude\skills\generador-poderes\
-```
+> [!NOTE]
+> Si la carpeta `.claude/skills/` no existía al iniciar Claude Code, reinicia la sesión.
 
-**Por proyecto** (en la raiz de tu proyecto, en vez de tu home):
-- macOS/Linux: `<proyecto>/.claude/skills/generador-poderes/`
-- Windows: `<proyecto>\.claude\skills\generador-poderes\`
+## 📖 Uso
 
-> Si la carpeta `.claude/skills/` no existia cuando iniciaste Claude Code,
-> reinicia la sesion para que la detecte.
+Pide al agente:
 
-## Uso
+- “redacta un poder especial para vender el inmueble matrícula X”
+- “genera un poder judicial para el abogado Y”
 
-Pide al agente algo como: "redacta un poder especial para vender el inmueble
-matricula X", "genera un poder judicial para el abogado Y", etc.
-
-El agente puede usar el helper incluido (Python, solo biblioteca estandar):
+O usa el helper (Python, solo stdlib):
 
 ```bash
-python scripts/generar_poder.py <tipo> --plantilla          # plantilla en blanco
-python scripts/generar_poder.py <tipo> --set campo=valor   # no interactivo
+# Plantilla en blanco
+python skills/generador-poderes/scripts/generar_poder.py general --plantilla
+
+# No interactivo
+python skills/generador-poderes/scripts/generar_poder.py judicial --set poderdante_nombre="María López" --set ...
 ```
 
-Tipos: `general`, `especial`, `judicial`, `administrativo`, `maestra`.
+| Tipo | Uso |
+| :--- | :--- |
+| `general` | Amplio y suficiente — escritura pública |
+| `especial` | Negocio concreto (inmueble, asamblea) |
+| `judicial` | Pleitos — abogado con T.P. y correo RNA/SIRNA |
+| `administrativo` | DIAN, alcaldías, registro, tránsito, SECOP II |
+| `maestra` | Base configurable |
 
-## Estructura
+## 📂 Estructura
 
-```
+```text
 generador-poderes/
-  SKILL.md                     # metadatos + instrucciones
-  scripts/generar_poder.py     # generador (solo stdlib)
-  references/<tipo>.md         # plantillas por tipo
-  LICENSE
-  README.md
+├── plugin.json
+├── skills/generador-poderes/
+│   ├── SKILL.md
+│   ├── scripts/generar_poder.py
+│   └── references/<tipo>.md
+├── CHANGELOG.md
+└── LICENSE
 ```
 
-## Aviso
+## ⚠️ Aviso
 
-Este skill produce borradores. No constituye asesoria juridica. Los documentos
-deben revisarse y autenticarse ante la autoridad competente.
+> [!CAUTION]
+> Este skill produce **borradores**. No constituye asesoría jurídica. Debe revisarse por abogado o autenticarse ante la autoridad competente segun correspanda a cada caso.
+
+---
+
+<div align="center">
+
+**Hecho con lenguaje claro para Colombia 🇨🇴**
+
+[Releases](https://github.com/oddradiocircle/generador-poderes/releases) · [Reportar issue](https://github.com/oddradiocircle/generador-poderes/issues) · [skills.sh](https://www.skills.sh/oddradiocircle/generador-poderes)
+
+</div>

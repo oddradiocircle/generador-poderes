@@ -1,4 +1,5 @@
 {
   "name": "generador-poderes",
-  "description": "Skill de poderes (powers of attorney) colombianos"
+  "description": "Skill de poderes (powers of attorney) colombianos",
+  "version": "0.1.1"
 }
