@@ -4,9 +4,9 @@ Skill para agentes de IA que genera **poderes (powers of attorney) colombianos**
 en Markdown, a partir de plantillas fundamentadas en la legislacion local.
 Aplica lenguaje claro y valida los campos obligatorios.
 
-Este skill es conforme al formato documentado de skills.sh y funciona en
-cualquier agente que soporte dicho formato abierto (Claude Code, Claude Cowork,
-Cursor, Codex, GitHub Copilot, Windsurf, Gemini, Cline y 80+ mas).
+Este skill funciona en cualquier agente que soporte el formato abierto de skills
+(Claude Code, Claude Cowork, Cursor, Codex, GitHub Copilot, Windsurf, Gemini,
+Cline y 80+ mas).
 
 ## Prompt de instalacion automatica (para darle a tu agente)
 
